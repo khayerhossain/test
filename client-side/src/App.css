@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+@plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+*{
+font-family:"Quicksand", sans-serif;
+}
+
+:root {
+  --primary-color: #4CAF50;        /* Fresh Green */
+  --primary-light: #A5D6A7;  /* Soft pastel green */
+  --secondary: #FFC107;      /* Sunny yellow */
+  --accent: #8BC34A;         /* Light green */
+  --background: #F9FFF9;     /* Light background */
+  --text: #1B1B1B;           /* Default text */
+  --text-light: #ffffff;     /* Light text */
+  --danger: #E53935;         /* Error color */
+}
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-start infinite;
+}
