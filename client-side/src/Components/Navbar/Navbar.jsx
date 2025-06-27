@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 lg:px-16 flex items-center justify-between py-3">
 
         {/* Navbar Start: Logo */}
-        <div className="flex items-center  justify-center">
+        <div className="flex items-center justify-center">
           <img className="w-10" src={mainLogo} alt="Logo" />
           <span className="text-xl font-bold text-white">GreenSpot</span>
         </div>
@@ -35,30 +35,33 @@ const Navbar = () => {
           <NavLink to="/browsetips" className={linkStyle}>Browse Tips</NavLink>
           <NavLink to="/sharetip" className={linkStyle}>Share Gardener Tip</NavLink>
           <NavLink to="/mytip" className={linkStyle}>My Tips</NavLink>
+          {user && <NavLink to="/dashboard" className={linkStyle}>Dashboard</NavLink>}
         </div>
 
-       {/* Navbar End - Avatar + Button */}
-<div className="flex items-center gap-4 ml-auto md:ml-0">
-  {user ? (
-    <>
-      <div className="avatar">
-        <div className="w-10 rounded-full ring ring-white ring-offset-base-100 ring-offset-2">
-          <img src={user.photoURL || "https://img.daisyui.com/images/profile/demo/spiderperson@192.webp"} alt="Profile" />
+        {/* Navbar End - Avatar + Button */}
+        <div className="flex items-center gap-4 ml-auto md:ml-0">
+          {user ? (
+            <>
+              <div className="avatar">
+                <div className="w-10 rounded-full ring ring-white ring-offset-base-100 ring-offset-2">
+                  <img src={user.photoURL || "https://img.daisyui.com/images/profile/demo/spiderperson@192.webp"} alt="Profile" />
+                </div>
+              </div>
+              <button
+                onClick={handleSignOut}
+                className="bg-white text-black px-6 py-2 rounded-3xl cursor-pointer font-semibold hover:bg-green-100 transition hidden md:inline-block"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login">
+              <button className="bg-white text-black px-6 py-2 rounded-3xl cursor-pointer font-semibold hover:bg-green-100 transition hidden md:inline-block">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
-      </div>
-      <button onClick={handleSignOut} className="bg-white text-black px-6 py-2 rounded-3xl cursor-pointer font-semibold hover:bg-green-100 transition hidden md:inline-block">
-        Logout
-      </button>
-    </>
-  ) : (
-    <Link to="/login">
-      <button className="bg-white text-black px-6 py-2 rounded-3xl cursor-pointer font-semibold hover:bg-green-100 transition hidden md:inline-block">
-        Login
-      </button>
-    </Link>
-  )}
-</div>
-
 
         {/* Mobile Dropdown */}
         <div className="lg:hidden dropdown dropdown-end">
@@ -73,6 +76,9 @@ const Navbar = () => {
             <li><NavLink to="/browsetips" className={linkStyle}>Browse Tips</NavLink></li>
             <li><NavLink to="/sharetip" className={linkStyle}>Share Gardener Tip</NavLink></li>
             <li><NavLink to="/mytip" className={linkStyle}>My Tips</NavLink></li>
+            {user && (
+              <li><NavLink to="/dashboard" className={linkStyle}>Dashboard</NavLink></li>
+            )}
             <li>
               {user ? (
                 <button onClick={handleSignOut}>Logout</button>

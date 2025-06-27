@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
           {/* Logo + Brand Name */}
           <div>
-            <div className="flex items-center -space-x-5 mb-2">
+            <div className="flex items-center -space-x-5 mb-2 ">
               <img className="w-24 block" src={mainLogo} alt="Logo" />
               <span className="text-xl font-semibold block">GreenSpot</span>
             </div>

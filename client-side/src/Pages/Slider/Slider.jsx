@@ -7,7 +7,7 @@ import Typewriter from '../TypeWriter/TypeWriter';
 
 const Slider = () => {
   return (
-    <div className="w-full my-12 px-4 md:px-8 lg:px-16 mx-auto">
+    <div className="w-full my-8 px-4 md:px-8 lg:px-16 mx-auto max-h-[70vh]">
       {/* Carousel Slides */}
       <div className="carousel w-full rounded-box">
 

@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import Layout from "../Layouts/Layout";
 import Home from "../Home/Home";
 import Login from "../Pages/Login/Login";
@@ -10,6 +10,8 @@ import ShareTip from "../Pages/ShareTip/ShareTip";
 import MyTip from "../Pages/MyTip/MyTip";
 import TipDetails from "../Pages/TipDetails/TipDetails";
 import Error from "../Pages/Error/Error";
+import Dashboard from "../Layouts/Dashboard";
+import OverView from "../Pages/OverView/OverView";
 
 
 export const router=createBrowserRouter([
@@ -45,5 +47,13 @@ export const router=createBrowserRouter([
               {path:"*", Component:Error}
 
         ]
-    }
+    },
+   {
+  path: 'dashboard',
+  element: <Dashboard />,
+  children: [
+    { path: '', element: <Navigate to="overview" replace /> },
+    { path: 'overview', element: <OverView /> },
+  ]
+}
 ])

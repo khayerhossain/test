@@ -71,7 +71,7 @@ const TipCards = ({ data }) => {
               <td className="p-4">
                 <Link to={`/tipdetails/${_id}`}>
                   <button className="px-4 py-2 cursor-pointer bg-black text-white rounded-lg text-sm hover:bg-gray-800 transition">
-                    See More
+                    Details
                   </button>
                 </Link>
               </td>
